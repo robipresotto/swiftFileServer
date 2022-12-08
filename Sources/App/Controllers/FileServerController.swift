@@ -19,6 +19,13 @@ struct FileServerController {
     guard let upload = req.parameters.get("file") else {
       throw Abort(.badRequest)
     }
+            
+    guard let _ = try await self.downloads(
+      req: req
+    ).first(where: { $0 == upload }) else {
+      throw Abort(.notFound)
+    }
+    
     return req.fileio.streamFile(
       at: req.application.uploadsDir() + upload
     )
