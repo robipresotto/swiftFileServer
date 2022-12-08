@@ -3,11 +3,16 @@ version: '3.7'
 x-shared_environment: &shared_environment
   LOG_LEVEL: ${LOG_LEVEL:-debug}
   
+volumes:
+  uploads:
+  
 services:
   app:
     image: swift-file-server:latest
     build:
       context: .
+    volumes:
+      - uploads:/run
     environment:
       <<: *shared_environment
     ports:
