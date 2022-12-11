@@ -1,0 +1,9 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: nfs-api
+spec:
+  ports:
+    - port: 8080
+  selector:
+    role: api-backend
