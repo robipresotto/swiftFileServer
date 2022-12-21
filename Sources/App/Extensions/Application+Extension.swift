@@ -1,10 +1,3 @@
-//
-//  File.swift
-//  
-//
-//  Created by Robinson Presotto on 05/12/2022.
-//
-
 import Vapor
 
 extension Application {
