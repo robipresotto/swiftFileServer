@@ -3,7 +3,8 @@ import Vapor
 extension Application {
   
   func uploadsDir() -> String {
-    return "\(self.directory.workingDirectory)/uploads/"
+    let rootPath = Constants.volumePath ?? self.directory.workingDirectory
+    return "\(rootPath)/uploads/"
   }
   
   func setupServingDir() throws {

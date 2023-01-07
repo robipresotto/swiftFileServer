@@ -4,6 +4,9 @@ A tiny file server written in `swift` and build using docker.
 #### Requirements
 - swift 5+
 
+#### Env vars
+- VOLUME_PATH
+
 #### Getting started
 ```sh
 ./deploy.sh
