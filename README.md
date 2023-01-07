@@ -9,7 +9,7 @@ A tiny file server written in `swift` and built using docker.
 
 #### Getting started
 ```sh
-./deploy.sh
+./Scripts/deploy.sh
 ```
 
 #### Endpoints
