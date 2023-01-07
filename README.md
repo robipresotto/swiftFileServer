@@ -1,5 +1,5 @@
 # swiftFileServer
-A tiny file server written in `swift` and build using docker.
+A tiny file server written in `swift` and built using docker.
 
 #### Requirements
 - swift 5+
