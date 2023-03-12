@@ -3,7 +3,12 @@ variable "kube_config" {
   default  = "~/.kube/config"
 }
 
-variable "namespace" {
+variable "namespace-monitoring" {
   type     = string
   default = "monitoring"
 }
+
+variable "namespace-storage" {
+  type     = string
+  default = "storage"
+} 

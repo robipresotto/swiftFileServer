@@ -1,7 +1,7 @@
 resource "kubernetes_secret" "grafana" {
   metadata {
     name      = "grafana"
-    namespace = var.namespace
+    namespace = var.namespace-monitoring
   }
 
   data = {
@@ -18,7 +18,7 @@ resource "helm_release" "grafana" {
   chart            = "grafana"
   name            = "grafana"
   repository    = "https://grafana.github.io/helm-charts"
-  namespace  = var.namespace
+  namespace  = var.namespace-monitoring
   version         = "6.51.5"
 
   values = [
