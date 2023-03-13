@@ -9,3 +9,9 @@ resource "kubernetes_namespace" "storage" {
     name = var.namespace-storage
   }
 }
+
+resource "kubernetes_namespace" "linkerd" {
+  metadata {
+    name = var.namespace-linkerd
+  }
+}

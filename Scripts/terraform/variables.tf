@@ -12,3 +12,8 @@ variable "namespace-storage" {
   type     = string
   default = "storage"
 } 
+
+variable "namespace-linkerd" {
+  type     = string
+  default = "linkerd"
+} 
