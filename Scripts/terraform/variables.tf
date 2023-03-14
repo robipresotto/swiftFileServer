@@ -17,3 +17,4 @@ variable "namespace-linkerd" {
   type     = string
   default = "linkerd"
 } 
+
