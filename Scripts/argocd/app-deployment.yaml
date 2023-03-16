@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: swiftFileServerApi
+  name: swift-file-server-api
 spec:
   replicas: 1
   revisionHistoryLimit: 3
   selector:
     matchLabels:
-      app: swiftFileServerApi
+      app: swift-file-server-api
   template:
     metadata:
       labels:
-        app: swiftFileServerApi
+        app: swift-file-server-api
     spec:
       containers:
       - image: robipresotto/file-server:latest
-        name: swiftFileServerApi
+        name: swift-file-server-api
         ports:
         - containerPort: 8080
