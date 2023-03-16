@@ -15,3 +15,9 @@ resource "kubernetes_namespace" "linkerd" {
     name = var.namespace-linkerd
   }
 }
+
+resource "kubernetes_namespace" "ci-cd" {
+  metadata {
+    name = var.namespace-ci-cd
+  }
+}

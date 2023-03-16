@@ -18,3 +18,8 @@ variable "namespace-linkerd" {
   default = "linkerd"
 } 
 
+variable "namespace-ci-cd" {
+  type     = string
+  default = "ci-cd"
+} 
+
