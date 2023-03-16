@@ -11,23 +11,45 @@ resource "helm_release" "linkerd-plane" {
     })
   ]
 
+  set {
+    name = "proxyInit.runAsRoot"
+    value = true
+  }
+
+  set {
+    name = "proxyInit.privileged: true"
+    value = true
+  }
+
   set_sensitive {
     name = "identityTrustAnchorsPEM"
-    value = "certificates/ca.crt"
+    value = data.local_sensitive_file.identityTrustAnchorsPEM.content
   }
 
   set_sensitive {
     name = "identity.issuer.tls.keyPEM"
-    value = "certificates/issuer.key"
+    value = data.local_sensitive_file.IssuerKeyPEM.content
   }
 
   set_sensitive {
     name = "identity.issuer.tls.crtPEM"
-    value = "certificates/issuer.crt"
+    value = data.local_sensitive_file.issuerCrtPEM.content
   }
   
   depends_on = [
     helm_release.linkerd-crds
+  ]
+}
+
+resource "helm_release" "linkerd-viz" {
+  name            = "linkerd-viz"
+  chart            = "linkerd-viz"
+  repository    = "https://helm.linkerd.io/stable"
+  namespace  = var.namespace-linkerd
+  version         = "30.3.6"
+
+  depends_on = [
+    helm_release.linkerd-plane
   ]
 }
 
@@ -37,4 +59,16 @@ resource "helm_release" "linkerd-crds" {
   repository    = "https://helm.linkerd.io/stable"
   namespace  = var.namespace-linkerd
   version         = "1.4.0"
+}
+
+data "local_sensitive_file" "identityTrustAnchorsPEM" {
+  filename = "${path.module}/templates/certificates/ca.crt"
+}
+
+data "local_sensitive_file" "issuerCrtPEM" {
+  filename = "${path.module}/templates/certificates/issuer.crt"
+}
+
+data "local_sensitive_file" "IssuerKeyPEM" {
+  filename = "${path.module}/templates/certificates/issuer.key"
 }

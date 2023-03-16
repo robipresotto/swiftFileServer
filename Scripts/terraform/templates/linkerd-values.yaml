@@ -2,4 +2,3 @@ controllerLogLevel: ${debugLevel}
 proxyInit.logLevel: ${debugLevel}
 policyController.logLevel: ${debugLevel}
 proxy.logLevel: "warn,linkerd=${debugLevel}"
-identity.issuer.scheme: "kubernetes.io/tls"
