@@ -23,3 +23,8 @@ variable "namespace-ci-cd" {
   default = "ci-cd"
 } 
 
+variable "namespace-app" {
+  type     = string
+  default = "app"
+} 
+
