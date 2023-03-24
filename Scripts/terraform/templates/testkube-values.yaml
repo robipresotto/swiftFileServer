@@ -1,4 +1,18 @@
-testkube-api.telemetryEnabled: false
-# testkube-api.slackToken: 
-# testkube-api.slackTemplate: 
-# testkube-api.slackConfig:
+testkube-api:
+  slackToken: 
+  slackTemplate: 
+  slackConfig: 
+
+  minio:
+    enabled: false
+
+  storage:
+    endpoint: "minio.storage:9000"
+    accessKeyId: "9Agf5TVi85EX8qIl"
+    accessKey: "SdJNllkWcAdbUMDRf9FX6qZWDW4IuUd7"
+
+  service:
+    annotations: 
+      linkerd.io/inject: "enabled"
+
+  telemetryEnabled: ${telemetry}

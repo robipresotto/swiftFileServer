@@ -1,5 +1,0 @@
-service.type: "LoadBalancer"
-protocolHttp: "true"
-service.externalPort: 80
-replicaCount: 1
-rbac.clusterReadOnlyRole: "true"
