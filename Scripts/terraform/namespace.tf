@@ -1,6 +1,6 @@
 resource "kubernetes_namespace" "monitoring" {
   metadata {
-    name = var.namespace-monitoring
+    name = "monitoring"
     annotations = {
       "linkerd.io/inject" = "enabled"
     }
@@ -9,7 +9,7 @@ resource "kubernetes_namespace" "monitoring" {
 
 resource "kubernetes_namespace" "storage" {
   metadata {
-    name = var.namespace-storage
+    name = "storage"
     annotations = {
       "linkerd.io/inject" = "enabled"
     }
@@ -18,7 +18,7 @@ resource "kubernetes_namespace" "storage" {
 
 resource "kubernetes_namespace" "app" {
   metadata {
-    name = var.namespace-app
+    name = "app"
     annotations = {
       "linkerd.io/inject" = "enabled"
     }
@@ -27,13 +27,28 @@ resource "kubernetes_namespace" "app" {
 
 resource "kubernetes_namespace" "linkerd" {
   metadata {
-    name = var.namespace-linkerd
+    name = "linkerd"
   }
 }
 
 resource "kubernetes_namespace" "ci-cd" {
   metadata {
-    name = var.namespace-ci-cd
+    name = "ci-cd"
   }
 }
 
+resource "kubernetes_namespace" "k8" {
+  metadata {
+    name = "k8"
+  }
+}
+
+resource "kubernetes_namespace" "testkube" {
+  metadata {
+    name = "testkube"
+    annotations = {
+      "linkerd.io/inject" = "enabled"
+    }
+  }
+
+}

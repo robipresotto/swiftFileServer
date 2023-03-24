@@ -2,7 +2,7 @@ resource "helm_release" "linkerd-plane" {
   name            = "linkerd-control-plane"
   chart            = "linkerd-control-plane"
   repository    = "https://helm.linkerd.io/stable"
-  namespace  = var.namespace-linkerd
+  namespace  = "linkerd"
   version         = "1.9.6"
 
   values = [
@@ -45,7 +45,7 @@ resource "helm_release" "linkerd-viz" {
   name            = "linkerd-viz"
   chart            = "linkerd-viz"
   repository    = "https://helm.linkerd.io/stable"
-  namespace  = var.namespace-linkerd
+  namespace  = "linkerd"
   version         = "30.3.6"
 
   depends_on = [
@@ -57,7 +57,7 @@ resource "helm_release" "linkerd-crds" {
   chart            = "linkerd-crds"
   name            = "linkerd-crds"
   repository    = "https://helm.linkerd.io/stable"
-  namespace  = var.namespace-linkerd
+  namespace  = "linkerd"
   version         = "1.4.0"
 }
 

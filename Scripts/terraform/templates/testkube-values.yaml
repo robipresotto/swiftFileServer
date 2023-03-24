@@ -1,0 +1,4 @@
+testkube-api.telemetryEnabled: false
+# testkube-api.slackToken: 
+# testkube-api.slackTemplate: 
+# testkube-api.slackConfig:

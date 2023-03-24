@@ -1,7 +1,7 @@
 resource "kubernetes_secret" "minio" {
   metadata {
     name = "minio"
-    namespace = var.namespace-storage
+    namespace = "storage"
   }
 
   data = {
@@ -18,7 +18,7 @@ resource "helm_release" "minio" {
   chart            = "minio"
   name            = "minio"
   repository    = "https://charts.min.io/"
-  namespace  = var.namespace-storage
+  namespace  = "storage"
   version         = "5.0.7"
 
   values = [
