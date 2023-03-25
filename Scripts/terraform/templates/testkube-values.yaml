@@ -15,4 +15,7 @@ testkube-api:
     annotations: 
       linkerd.io/inject: "enabled"
 
-  telemetryEnabled: ${telemetry}
+  prometheus:
+    enabled: false
+
+telemetryEnabled: ${telemetry}

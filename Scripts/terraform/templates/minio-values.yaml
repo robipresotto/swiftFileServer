@@ -3,9 +3,8 @@ rootUser: ${rootUser_key}
 rootPassword: ${rootPassword_key}
 
 service:
-    annotations: 
-      linkerd.io/inject: "enabled"
-
+  annotations: 
+    linkerd.io/inject: "enabled"
 
 serviceAccount:
   create: true
@@ -17,6 +16,14 @@ resources:
 
 persistence:
   size: 1Gi
+
+metrics:
+  serviceMonitor:
+    enabled: false
+
+  prometheusRule:
+    enabled: false
+    namespace: "monitoring"
 
 replicas: ${replicas}
 pools: ${pools}
