@@ -2,7 +2,8 @@ podSecurityPolicy:
   enabled: true
 
 server:
-  persistentVolume: ${persistentVolume}
+  persistentVolume: 
+    enabled: ${persistentVolume}
   resources:
     limits:
       cpu: 500m
