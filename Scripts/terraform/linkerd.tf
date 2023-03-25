@@ -6,7 +6,7 @@ resource "helm_release" "linkerd-plane" {
   version         = "1.9.6"
 
   values = [
-    templatefile("${path.module}/templates/linkerd-values.yaml", {
+    templatefile("${path.module}/templates/linkerd-plane-values.yaml", {
       debugLevel = "debug"
     })
   ]
@@ -47,6 +47,12 @@ resource "helm_release" "linkerd-viz" {
   repository    = "https://helm.linkerd.io/stable"
   namespace  = "linkerd"
   version         = "30.3.6"
+
+  values = [
+    templatefile("${path.module}/templates/linkerd-viz-values.yaml", {
+      debugLevel = "debug"
+    })
+  ]
 
   depends_on = [
     helm_release.linkerd-plane

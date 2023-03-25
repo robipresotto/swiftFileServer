@@ -1,0 +1,7 @@
+clusterDomain: cluster.local
+defaultLogLevel: ${debugLevel}
+
+prometheus:
+  enabled: false
+
+prometheusUrl: "prometheus-server.monitoring"
