@@ -1,9 +1,9 @@
 resource "helm_release" "linkerd-plane" {
-  name            = "linkerd-control-plane"
-  chart            = "linkerd-control-plane"
-  repository    = "https://helm.linkerd.io/stable"
-  namespace  = "linkerd"
-  version         = "1.9.6"
+  name = "linkerd-control-plane"
+  chart = "linkerd-control-plane"
+  repository = "https://helm.linkerd.io/stable"
+  namespace = "linkerd"
+  version = "1.9.6"
 
   values = [
     templatefile("${path.module}/templates/linkerd-plane-values.yaml", {
@@ -42,11 +42,11 @@ resource "helm_release" "linkerd-plane" {
 }
 
 resource "helm_release" "linkerd-viz" {
-  name            = "linkerd-viz"
-  chart            = "linkerd-viz"
-  repository    = "https://helm.linkerd.io/stable"
-  namespace  = "linkerd"
-  version         = "30.3.6"
+  name = "linkerd-viz"
+  chart = "linkerd-viz"
+  repository = "https://helm.linkerd.io/stable"
+  namespace = "linkerd"
+  version = "30.3.6"
 
   values = [
     templatefile("${path.module}/templates/linkerd-viz-values.yaml", {
@@ -59,12 +59,24 @@ resource "helm_release" "linkerd-viz" {
   ]
 }
 
+# resource "helm_release" "linkerd-multi-cluster" {
+#   chart            = "linkerd-multicluster"
+#   name            = "linkerd-multicluster"
+#   repository    = "https://helm.linkerd.io/stable"
+#   namespace  = "linkerd"
+#   version         = "30.2.6"
+  
+#   depends_on = [
+#     helm_release.linkerd-plane
+#   ]
+# }
+
 resource "helm_release" "linkerd-crds" {
-  chart            = "linkerd-crds"
-  name            = "linkerd-crds"
-  repository    = "https://helm.linkerd.io/stable"
-  namespace  = "linkerd"
-  version         = "1.4.0"
+  chart = "linkerd-crds"
+  name = "linkerd-crds"
+  repository = "https://helm.linkerd.io/stable"
+  namespace = "linkerd"
+  version = "1.4.0"
 }
 
 data "local_sensitive_file" "identityTrustAnchorsPEM" {

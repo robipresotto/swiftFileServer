@@ -15,19 +15,19 @@ resource "random_password" "minio" {
 }
 
 resource "helm_release" "minio" {
-  chart            = "minio"
-  name            = "minio"
-  repository    = "https://charts.min.io/"
-  namespace  = "storage"
-  version         = "5.0.7"
+  chart = "minio"
+  name = "minio"
+  repository = "https://charts.min.io/"
+  namespace = "storage"
+  version = "5.0.7"
 
   values = [
     templatefile("${path.module}/templates/minio-values.yaml", {
-      admin_existing_secret   = kubernetes_secret.minio.metadata[0].name
-      rootUser_key                 = "rootUser"
-      rootPassword_key         = "rootPassword"
-      replicas                           = 4
-      pools                               = 1
+      admin_existing_secret = kubernetes_secret.minio.metadata[0].name
+      rootUser_key = "rootUser"
+      rootPassword_key = "rootPassword"
+      replicas = 4
+      pools = 1
     })
   ]
 }
