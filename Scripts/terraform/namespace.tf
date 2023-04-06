@@ -39,3 +39,9 @@ resource "kubernetes_namespace" "testkube" {
     name = "testkube"
   }
 }
+
+resource "kubernetes_namespace" "db" {
+  metadata {
+    name = "db"
+  }
+}
