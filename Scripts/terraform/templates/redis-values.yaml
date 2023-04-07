@@ -14,6 +14,9 @@ serviceAccount:
 rbac:
   create: true
 
+# existingSecret:
+#   redis-cluster: "redis-password"
+
 tls:
   enabled: false
   authClients: true
@@ -42,14 +45,6 @@ cluster:
   init: true
   nodes: 6
   replicas: 1
-  externalAccess:
-    enabled: false
-    service:
-      type: LoadBalancer
-      port: 6379
-      loadBalancerIP: []
-      loadBalancerSourceRanges: []
-      annotations: {}
   update:
     addNodes: false
     currentNumberOfNodes: 6
@@ -60,11 +55,6 @@ metrics:
   enabled: true
 
   serviceMonitor:
-    enabled: false
+    enabled: true
     namespace: "monitoring"
-    interval: ""
     
-  prometheusRule:
-    enabled: false
-    additionalLabels: {}
-    namespace: ""

@@ -12,4 +12,9 @@ resource "helm_release" "redis-cluster" {
       certCAFilename: "${path.module}/templates/certificates/ca.crt"
     })
   ]
+
+  depends_on = [
+    helm_release.prometheus-crds
+  ]
+
 }
